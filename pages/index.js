@@ -1,6 +1,9 @@
 import Head from "next/head";
-import Homecomp from "../src/components/Homecomp";
 import Layout from "../src/layouts/Layout";
+import Homecomp from "../src/components/Homecomp";
+import Exp from "../src/components/Exp";
+import Premios from "../src/components/Premios";
+import About from "../src/components/About";
 
 export default function Home() {
   return (
@@ -13,6 +16,9 @@ export default function Home() {
 
       <Layout>
         <Homecomp />
+        <Exp />
+        <Premios />
+        <About />
       </Layout>
     </div>
   );

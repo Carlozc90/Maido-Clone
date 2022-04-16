@@ -5,7 +5,7 @@ const Homecomp = () => {
     <div className="homecomp">
       <Image
         layout="fill"
-        src={"/assets/img/home.jpg"}
+        src={"/assets/img/bg-home.jpg"}
         alt="logo imagen"
         className="homecomp__img"
       />
