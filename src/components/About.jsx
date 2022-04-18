@@ -1,7 +1,7 @@
 import Image from "next/image";
 const About = () => {
   return (
-    <div className="About">
+    <section className="About">
       <div className="About__container">
         <div className="About__GridContainer">
           <p className="About__nombre">MITSUHARU</p>
@@ -29,13 +29,13 @@ const About = () => {
           />
         </div>
         <Image
-          src={"/assets/img/premios.jpg"}
+          src={"/assets/img/micha.jpg"}
           width={"1000"}
           height={"1000"}
           alt={"Img del premiado"}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -4,6 +4,7 @@
   background: none;
   cursor: pointer;
   color: white;
+  width: auto;
 }
 
 .parrafo {
@@ -170,4 +171,61 @@
   color: rgb(190 24 93);
   font-size: 1.4rem;
   font-weight: 600;
+}
+
+.Footer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(228, 228, 228);
+}
+
+.Footer__Grid {
+  width: 85%;
+  display: grid;
+  justify-items: center;
+
+  grid-template-columns: repeat(5, 1fr);
+  color: rgb(113, 113, 113);
+}
+
+.Footer__logo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.Footer__Hora {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  line-height: 60%;
+}
+
+.Footer__reserva {
+  color: gray;
+  font-weight: 700;
+  border-color: black;
+}
+
+.Footer__Contacto {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  line-height: 50%;
+}
+
+.Footer__Contenedor-nav {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 2rem;
+  gap: 3rem;
+}
+
+.Footer__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.Footer_link {
+  padding-top: 10px;
+  cursor: pointer;
+  font-weight: 500;
 }

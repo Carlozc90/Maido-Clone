@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Premios = () => {
   return (
-    <div className="Premio">
+    <section className="Premio">
       <div className="Premio__container">
         <Image
           src={"/assets/img/premios.jpg"}
@@ -59,7 +59,7 @@ const Premios = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

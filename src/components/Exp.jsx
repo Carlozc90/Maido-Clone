@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Exp = () => {
   return (
-    <div className="Exp">
+    <section className="Exp">
       <Image
         layout="fill"
         src={"/assets/img/bg-experiencia.jpg"}
@@ -31,7 +31,7 @@ const Exp = () => {
           conoce nuetra experiencias
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

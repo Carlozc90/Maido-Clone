@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Homecomp = () => {
   return (
-    <div className="homecomp">
+    <section className="homecomp">
       <Image
         layout="fill"
         src={"/assets/img/bg-home.jpg"}
@@ -12,7 +12,7 @@ const Homecomp = () => {
       <div className="homecomp__container-text">
         <p className="homecomp__text">Bienvenido a nuetro mundo.</p>
       </div>
-    </div>
+    </section>
   );
 };
 
