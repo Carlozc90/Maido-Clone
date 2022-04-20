@@ -28,6 +28,10 @@
     color: black;
   }
 
+  .header__img {
+    padding-top: 0 !important;
+  }
+
   .header__boton {
     display: none;
   }
@@ -60,6 +64,41 @@
   }
 }
 
+.overlay {
+  position: fixed;
+  z-index: 20;
+  background-color: rgb(159 18 57);
+  opacity: 0.96;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.overlay__boton {
+  font-weight: 500;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  line-height: 4rem;
+  color: white !important;
+}
+
+.overlay__boton--X {
+  font-weight: 500;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  color: white !important;
+}
+
 .header {
   /* background-color: rgb(148 163 184); */
   width: 100%;
@@ -69,6 +108,11 @@
   justify-content: space-between;
   position: fixed;
   z-index: 10;
+}
+
+.header__img {
+  padding-left: 3rem;
+  padding-top: 2rem;
 }
 
 .header__nav {
@@ -83,6 +127,14 @@
   padding: 10px 3rem;
   border: 1px solid white;
   color: white;
+}
+
+.header__boton-leng {
+  color: black;
+}
+
+.header__boton-color {
+  background-color: rgb(159 18 57);
 }
 
 .homecomp {
@@ -242,6 +294,11 @@
   color: gray;
   font-weight: 700;
   border-color: black;
+}
+
+.Footer__reserva:hover {
+  background-color: rgb(159 18 57);
+  color: white;
 }
 
 .Footer__Contacto {

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <section className="Footer">
+    <section id="footer" className="Footer">
       <div className="Footer__Grid">
         <p className="Footer__logo">
           <Image

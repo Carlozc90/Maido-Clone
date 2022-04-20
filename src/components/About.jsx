@@ -1,7 +1,7 @@
 import Image from "next/image";
 const About = () => {
   return (
-    <section className="About">
+    <section id="about" className="About">
       <div className="About__container">
         <div className="About__GridContainer">
           <p className="About__nombre">MITSUHARU</p>

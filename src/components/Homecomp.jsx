@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Homecomp = () => {
   return (
-    <section className="homecomp">
+    <section id="inicio" className="homecomp">
       <Image
         layout="fill"
         src={"/assets/img/bg-home.jpg"}

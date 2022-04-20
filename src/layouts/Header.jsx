@@ -1,32 +1,59 @@
 import Image from "next/image";
+import { Link } from "react-scroll";
+import { useEffect, useState } from "react";
 
-import useDeviceSize from "../useHook";
+import useDeviceSize from "../hooks/useMediaK";
+import useScrolls from "../hooks/useScroll";
 
-const Header = () => {
+const Header = ({ setOverlayBton, overlayBton }) => {
   const [width, height] = useDeviceSize();
+  const [scrollY] = useScrolls();
+
+  const [scrool, setScrool] = useState();
+
+  useEffect(() => {
+    setScrool(scrollY);
+  }, [scrollY]);
+
+  const handleSansh = () => {
+    setOverlayBton(!overlayBton);
+  };
 
   return (
     <div className="header">
-      <div className="header__img">
-        <Image
-          width={width > 768 ? 100 : 200}
-          height={100}
-          src={`${
-            width > 768
-              ? "/assets/img/logo-main.png"
-              : "/assets/img/logo-sec.png"
-          }`}
-          alt="logo imagen"
-        />
-      </div>
+      <Link to={"exp"} spy={true} smooth={true} offset={-40} duration={500}>
+        <div className="header__img">
+          <Image
+            width={width > 768 ? (scrollY > 200 ? 250 : 100) : 250}
+            height={100}
+            src={`${
+              width > 768
+                ? scrollY > 200
+                  ? "/assets/img/logo-sec.png"
+                  : "/assets/img/logo-main.png"
+                : "/assets/img/logo-sec.png"
+            }`}
+            alt="logo imagen"
+          />
+        </div>
+      </Link>
 
       <nav className={`${width > 768 ? "header__nav" : "header__nav-md"}`}>
-        <button type="button" className="botton header__boton">
+        <button
+          type="button"
+          className={`${
+            scrollY > 200 && "header__boton-color"
+          } botton header__boton`}
+        >
           Reserva aquí
         </button>
-        <button className="botton">EN</button>
-        <button className="botton">ES</button>
-        <button className="botton">
+        <button className={`botton ${scrollY > 200 && "header__boton-leng"}`}>
+          EN
+        </button>
+        <button className={`botton ${scrollY > 200 && "header__boton-leng"}`}>
+          ES
+        </button>
+        <button className="botton" type="button" onClick={handleSansh}>
           {width < 768 ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +80,7 @@ const Header = () => {
               height="30"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="#ffffff"
+              stroke={`${scrollY > 200 ? "#000000" : "#ffffff"}`}
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

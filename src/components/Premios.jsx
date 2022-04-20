@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Premios = () => {
   return (
-    <section className="Premio">
+    <section id="premio" className="Premio">
       <div className="Premio__container">
         <Image
           src={"/assets/img/premios.jpg"}
