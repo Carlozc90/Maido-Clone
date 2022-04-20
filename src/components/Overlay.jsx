@@ -1,7 +1,11 @@
 import { Link } from "react-scroll";
+import { useRouter } from "next/router";
+
 const Overlay = ({ overlayBton, setOverlayBton }) => {
+  const router = useRouter();
   const handleBotton = () => {
     setOverlayBton(!overlayBton);
+    if (router.pathname !== "/") router.push("/");
   };
   return (
     <div className="overlay ">

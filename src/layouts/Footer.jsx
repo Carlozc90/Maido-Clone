@@ -1,6 +1,15 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
+import * as Scroll from "react-scroll";
+import Link from "next/link";
 
 const Footer = () => {
+  const router = useRouter();
+
+  const haldleRouter = () => {
+    router.pathname !== "/" && router.push("/");
+  };
+
   return (
     <section id="footer" className="Footer">
       <div className="Footer__Grid">
@@ -26,12 +35,50 @@ const Footer = () => {
           </button>
           <div className="Footer__Contenedor-nav">
             <nav className="Footer__nav">
-              <a className="Footer_link">Inicio</a>
-              <a className="Footer_link">Experiencias</a>
-              <a className="Footer_link">Mitsuharu</a>
-              <a className="Footer_link">Contacto</a>
-              <a className="Footer_link">Libro de Reclamaciones</a>
-              <a className="Footer_link">Politica de Privacidad</a>
+              <Scroll.Link
+                onClick={haldleRouter}
+                to={"inicio"}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                <p className="Footer_link">Inicio</p>
+              </Scroll.Link>
+              <Scroll.Link
+                onClick={haldleRouter}
+                to={"exp"}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                <p className="Footer_link">Experiencias</p>
+              </Scroll.Link>
+              <Scroll.Link
+                onClick={haldleRouter}
+                to={"about"}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                <p className="Footer_link">Mitsuharu</p>
+              </Scroll.Link>
+              <Scroll.Link
+                onClick={haldleRouter}
+                to={"contacto"}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                <p className="Footer_link">Contacto</p>
+              </Scroll.Link>
+
+              <Link passHref href={"/libro-reclamaciones"}>
+                <p className="Footer_link">Libro de Reclamaciones</p>
+              </Link>
+
+              <Link passHref href={"/politica-de-privacidad"}>
+                <p className="Footer_link">Politica de Privacidad</p>
+              </Link>
             </nav>
             <Image
               width={60}
@@ -51,7 +98,12 @@ const Footer = () => {
           <p>Calle San Martín 399</p>
           <p>(Esquina con Calle Colón)</p>
           <p>Miraflores - Lima, Perú</p>
-          <h5>Ver en Google Maps</h5>
+
+          <Link href={"https://g.page/mitsuharu_maido"}>
+            <a target="_blank">
+              <h5>Ver en Google Maps</h5>
+            </a>
+          </Link>
 
           <div>
             <button className="botton">

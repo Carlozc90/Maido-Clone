@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { Link } from "react-scroll";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import useDeviceSize from "../hooks/useMediaK";
 import useScrolls from "../hooks/useScroll";
 
 const Header = ({ setOverlayBton, overlayBton }) => {
+  const router = useRouter();
   const [width, height] = useDeviceSize();
   const [scrollY] = useScrolls();
 
@@ -15,24 +17,45 @@ const Header = ({ setOverlayBton, overlayBton }) => {
     setScrool(scrollY);
   }, [scrollY]);
 
+  const hanleInicio = () => {
+    if (router.pathname !== "/") router.push("/");
+  };
+
   const handleSansh = () => {
     setOverlayBton(!overlayBton);
   };
 
   return (
     <div className="header">
-      <Link to={"exp"} spy={true} smooth={true} offset={-40} duration={500}>
+      <Link
+        onClick={hanleInicio}
+        to={"inicio"}
+        spy={true}
+        smooth={true}
+        offset={-40}
+        duration={500}
+      >
         <div className="header__img">
           <Image
-            width={width > 768 ? (scrollY > 200 ? 250 : 100) : 250}
+            width={
+              router.pathname !== "/"
+                ? 100
+                : width > 768
+                ? scrollY > 200
+                  ? 250
+                  : 100
+                : 250
+            }
             height={100}
             src={`${
-              width > 768
+              router.pathname !== "/"
+                ? "/assets/img/logo-black.png"
+                : width > 768
                 ? scrollY > 200
                   ? "/assets/img/logo-sec.png"
                   : "/assets/img/logo-main.png"
                 : "/assets/img/logo-sec.png"
-            }`}
+            }  `}
             alt="logo imagen"
           />
         </div>
@@ -42,15 +65,25 @@ const Header = ({ setOverlayBton, overlayBton }) => {
         <button
           type="button"
           className={`${
-            scrollY > 200 && "header__boton-color"
+            scrollY > 200 || router.pathname !== "/"
+              ? "header__boton-color"
+              : ""
           } botton header__boton`}
         >
           Reserva aquí
         </button>
-        <button className={`botton ${scrollY > 200 && "header__boton-leng"}`}>
+        <button
+          className={`botton ${
+            scrollY > 200 || router.pathname !== "/" ? "header__boton-leng" : ""
+          }`}
+        >
           EN
         </button>
-        <button className={`botton ${scrollY > 200 && "header__boton-leng"}`}>
+        <button
+          className={`botton ${
+            scrollY > 200 || router.pathname !== "/" ? "header__boton-leng" : ""
+          }`}
+        >
           ES
         </button>
         <button className="botton" type="button" onClick={handleSansh}>
@@ -80,7 +113,9 @@ const Header = ({ setOverlayBton, overlayBton }) => {
               height="30"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke={`${scrollY > 200 ? "#000000" : "#ffffff"}`}
+              stroke={`${
+                scrollY > 200 || router.pathname !== "/" ? "#000000" : "#ffffff"
+              }`}
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
