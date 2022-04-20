@@ -37,25 +37,13 @@ const Header = ({ setOverlayBton, overlayBton }) => {
       >
         <div className="header__img">
           <Image
-            width={
-              router.pathname !== "/"
-                ? 100
-                : width > 768
-                ? scrollY > 200
-                  ? 250
-                  : 100
-                : 250
-            }
+            width={router.pathname !== "/" ? 100 : 250}
             height={100}
             src={`${
               router.pathname !== "/"
                 ? "/assets/img/logo-black.png"
-                : width > 768
-                ? scrollY > 200
-                  ? "/assets/img/logo-sec.png"
-                  : "/assets/img/logo-main.png"
                 : "/assets/img/logo-sec.png"
-            }  `}
+            }`}
             alt="logo imagen"
           />
         </div>
